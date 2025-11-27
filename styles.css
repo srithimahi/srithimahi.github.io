@@ -1,54 +1,107 @@
+/* --- GLOBAL --- */
 
-    /* Stop scroll */
 html, body {
     height: 100%;
     margin: 0;
-    overflow: hidden;
-    background: #eed9c4;
-    font-family: "Inter", sans-serif;
+    overflow: hidden; /* no scrolling */
+}
+
+body {
+    font-family: "Spline Sans Mono", monospace;
+    color: #fdf5ea;
+    /* midnight retro gradient */
+    background:
+            radial-gradient(circle at 10% 0%, #3c3a7a 0, transparent 50%),
+            radial-gradient(circle at 90% 0%, #ec5b63 0, transparent 55%),
+            linear-gradient(180deg, #0a0715 0, #020307 100%);
+}
+
+/* layout: stack title + collage vertically, centered */
+
+.page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;  /* center the whole row horizontally */
+    align-items: center;      /* center the whole row vertically */
 }
 
 
-/* Collage container */
-    .collage-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+/* --- HERO TEXT --- */
 
-        gap: 40px; /* ← OPTIONAL: built-in spacing! */
-    }
-    .collage-title {
-        margin-right: 70px;   /* space between text and collage */
-        font-size: 32px;
-        color: #141414;
-        font-family: Arial, sans-serif;
-    }
+.hero {
+    text-align: center;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 2.4rem;
+    letter-spacing: 0.04em;
+}
+
+.hero p {
+    margin: 8px 0 0;
+    font-size: 0.95rem;
+    opacity: 0.85;
+}
+
+/* --- COLLAGE --- */
+
+.collage-wrapper {
+    display: flex;
+    flex-direction: row;      /* title + collage side by side */
+    align-items: center;      /* align their middles */
+    justify-content: center;
+    gap: 60px;                /* space between title and collage */
+    width: 100%;
+}
 
 
-/* Collage image */
+
+.collage-frame {
+    position: relative;
+    max-width: 900px;
+    max-height: 50vh;
+    filter: drop-shadow(0 18px 50px rgba(0, 0, 0, 0.7));
+    border-radius: 18px;
+    overflow: visible;
+
+    margin-top: -950px;  /* try -20, -30, -40 to taste */
+}
+
 .collage {
-    max-width: 90vw;         /* keep from touching edges */
-    max-height: 90vh;
-    object-fit: contain;
     display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
 }
 
-/* Hotspots — use percentages! */
+/* --- HOTSPOTS --- */
+
 .hotspot {
     position: absolute;
+    border: none;
+    background: transparent;   /* invisible, but clickable */
     cursor: pointer;
-    /* debug:
-    background: rgba(255,0,0,0.2);
+    padding: 0;
+    /* debugging: uncomment to see the boxes
+    background: rgba(255, 0, 0, 0.25);
     */
 }
 
+/* Example positions – you’ll adjust these to match each poster.
+   Use % so they scale with the image. */
 
-.h1 { top: 20%; left: 35%; width: 18%; height: 22%; }
-.h2 { top: 40%; left: 60%; width: 20%; height: 25%; }
-.h3 { top: 70%; left: 25%; width: 15%; height: 18%; }
+.crochet         { top: 63%; left: 10%; width: 14%; height: 18%; }
+.robotics        { top: 15%; left: 17%; width: 14%; height: 18%; }
+.aboutWebsite    { top: 30%; left: 36%; width: 14%; height: 18%; }
+.aiVision        { top: 55%; left: 33%; width: 14%; height: 18%; }
+.chatApp         { top: 18%; left: 55%; width: 14%; height: 18%; }
+.coolie          { top: 60%; left: 55%; width: 14%; height: 18%; }
+.drawing         { top: 42%; left: 13%; width: 14%; height: 18%; }
+.history         { top: 72%; left: 25%; width: 14%; height: 18%; }
+.kalimba         { top: 35%; left: 72%; width: 14%; height: 18%; }
+.me              { top: 60%; left: 72%; width: 14%; height: 18%; }
+.painting        { top: 8%;  left: 35%; width: 14%; height: 18%; }
+.photography     { top: 8%;  left: 70%; width: 14%; height: 18%; }
+.windCoolingTower{ top: 78%; left: 50%; width: 14%; height: 18%; }

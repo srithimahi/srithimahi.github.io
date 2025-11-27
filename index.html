@@ -2,30 +2,48 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>My Collage</title>
+    <title>Srithika's Site</title>
+
+    <!-- Soft mono-ish font -->
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:wght@400;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
+<main class="page">
 
-<!-- COLLAGE AREA -->
-<div class="collage-container">
-    <div class="text-block">
-        <h1 class="collage-title">Srithika's Site</h1>
-        <h3 class="college-desc">Click on the posters to know about me!</h3>
-    </div>
+    <!-- TITLE + SUBTITLE (centered, like the charm site) -->
 
+    <!-- COLLAGE IN THE MIDDLE -->
+    <section class="collage-wrapper">
+        <div class="hero">
+            <h1>hi! i'm srithika.</h1>
+            <p>click on the posters to know about me!</p>
+        </div>
+        <div class="collage-frame">
+            <img src="Collage.png" class="collage" alt="collage of posters">
 
-    <img src="Collage.png" class="collage">
+            <!-- Hotspots: keep adding these, they sit ON the collage -->
+            <button class="hotspot crochet"      onclick="location.href='crochet.html'"></button>
+            <button class="hotspot robotics"     onclick="location.href='robotics.html'"></button>
+            <button class="hotspot aboutWebsite" onclick="location.href='aboutWebsite.html'"></button>
+            <button class="hotspot aiVision"     onclick="location.href='aiVision.html'"></button>
+            <button class="hotspot chatApp"      onclick="location.href='chatApp.html'"></button>
+            <button class="hotspot coolie"       onclick="location.href='coolie.html'"></button>
+            <button class="hotspot drawing"      onclick="location.href='drawing.html'"></button>
+            <button class="hotspot history"      onclick="location.href='history.html'"></button>
+            <button class="hotspot kalimba"      onclick="location.href='kalimba.html'"></button>
+            <button class="hotspot me"           onclick="location.href='me.html'"></button>
+            <button class="hotspot painting"     onclick="location.href='painting.html'"></button>
+            <button class="hotspot photography"  onclick="location.href='photography.html'"></button>
+            <button class="hotspot windCoolingTower" onclick="location.href='windCoolingTower.html'"></button>
+        </div>
+    </section>
 
-    <!-- Hotspots -->
-    <div class="hotspot h1" onclick="location.href='crochet.html'"></div>
-    <div class="hotspot h2" onclick="location.href='robotics.html'"></div>
-    <div class="hotspot h3" onclick="location.href='art.html'"></div>
-</div>
-
+</main>
 
 </body>
 </html>
+
 
