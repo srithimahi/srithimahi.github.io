@@ -1,36 +1,49 @@
-/* --- GLOBAL --- */
-
-html, body {
-    height: 100%;
+﻿html, body {
     margin: 0;
-    overflow: hidden; /* no scrolling */
+    padding: 0;
+    min-height: 100%;
+    overflow: hidden;
 }
 
 body {
     font-family: "Spline Sans Mono", monospace;
     color: #fdf5ea;
-    /* midnight retro gradient */
     background:
             radial-gradient(circle at 10% 0%, #3c3a7a 0, transparent 50%),
-            radial-gradient(circle at 90% 0%, #ec5b63 0, transparent 55%),
+            radial-gradient(circle at 90% 0%, #e6373f 0, transparent 55%),
             linear-gradient(180deg, #0a0715 0, #020307 100%);
+    overflow-x: hidden;
 }
 
-/* layout: stack title + collage vertically, centered */
+/* --- LAYOUT --- */
 
 .page {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;  /* center the whole row horizontally */
-    align-items: center;      /* center the whole row vertically */
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 6vw;
+    box-sizing: border-box;
 }
 
+.collage-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;       /* centers the whole pair */
+    gap: 60px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;                /* ensures it's centered horizontally */
+}
 
 
 /* --- HERO TEXT --- */
 
 .hero {
-    text-align: center;
+    text-align: left;
+    max-width: 380px;
+    flex-shrink: 0;
 }
 
 .hero h1 {
@@ -45,63 +58,126 @@ body {
     opacity: 0.85;
 }
 
-/* --- COLLAGE --- */
+/* --- COLLAGE GRID --- */
 
-.collage-wrapper {
-    display: flex;
-    flex-direction: row;      /* title + collage side by side */
-    align-items: center;      /* align their middles */
-    justify-content: center;
-    gap: 60px;                /* space between title and collage */
-    width: 100%;
-}
-
-
-
-.collage-frame {
+.collage-grid {
     position: relative;
-    max-width: 900px;
-    max-height: 50vh;
-    filter: drop-shadow(0 18px 50px rgba(0, 0, 0, 0.7));
-    border-radius: 18px;
-    overflow: visible;
-
-    margin-top: -950px;  /* try -20, -30, -40 to taste */
+    width: 850px;     /* adjust */
+    height: 600px;    /* adjust */
+    transform: scale(0.9);
+    transform-origin: top center;
 }
 
-.collage {
+
+/* base tile style */
+
+.tile {
+    position: absolute;  /* <--- THIS is the magic */
+    width: 160px;        /* size of each poster */
+    height: 220px;
     display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 18px;
+    text-decoration: none;
+    transform-origin: center;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    aspect-ratio: 3 / 4;  /* portrait shape, adjust if needed */
+    overflow: hidden;
 }
 
-/* --- HOTSPOTS --- */
-
-.hotspot {
-    position: absolute;
-    border: none;
-    background: transparent;   /* invisible, but clickable */
-    cursor: pointer;
-    padding: 0;
-    /* debugging: uncomment to see the boxes
-    background: rgba(255, 0, 0, 0.25);
-    */
+.tile img {
+    width: 95%;
+    height: 95%;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
-/* Example positions – you’ll adjust these to match each poster.
-   Use % so they scale with the image. */
+/* hover micro-animation */
 
-.crochet         { top: 63%; left: 10%; width: 14%; height: 18%; }
-.robotics        { top: 15%; left: 17%; width: 14%; height: 18%; }
-.aboutWebsite    { top: 30%; left: 36%; width: 14%; height: 18%; }
-.aiVision        { top: 55%; left: 33%; width: 14%; height: 18%; }
-.chatApp         { top: 18%; left: 55%; width: 14%; height: 18%; }
-.coolie          { top: 60%; left: 55%; width: 14%; height: 18%; }
-.drawing         { top: 42%; left: 13%; width: 14%; height: 18%; }
-.history         { top: 72%; left: 25%; width: 14%; height: 18%; }
-.kalimba         { top: 35%; left: 72%; width: 14%; height: 18%; }
-.me              { top: 60%; left: 72%; width: 14%; height: 18%; }
-.painting        { top: 8%;  left: 35%; width: 14%; height: 18%; }
-.photography     { top: 8%;  left: 70%; width: 14%; height: 18%; }
-.windCoolingTower{ top: 78%; left: 50%; width: 14%; height: 18%; }
+.tile:hover {
+
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.65);
+}
+
+/* --- COLLAGE “MESSY” VIBE ---
+   Tiny rotations + nudges. You can tweak these until it feels right.
+*/
+
+.tile-crochet         { transform: translate(380px,   700px) }
+.tile-robotics        { transform: translate( -150px, 590px) }
+.tile-aboutWebsite    { transform: translate( 420px,  120px) }
+.tile-saleszone        { transform: translate(130px,  260px) }
+.tile-chatApp         { transform: translate( 270px, 510px) }
+.tile-tsa          { transform: translate(-10px,  450px) }
+.tile-art         { transform: translate( 350px,  320px)  }
+.tile-history         { transform: translate( 480px,  510px) }
+.tile-kalimba         { transform: translate(550px,  310px)  }
+.tile-me              { transform: translate( 0px,  100px)  }
+.tile-hackClub        { transform: translate(240px,  70px)  }
+.tile-photography     { transform: translate( 130px, 620px) }
+.tile-windCoolingTower{ transform: translate(-130px,  260px)  }
+
+/* OPTIONAL: make a few span more space for extra visual interest
+   (comment out these if it's too chaotic at first)
+
+
+.tile-robotics {
+    grid-column: span 2;
+}
+
+.tile-me {
+    grid-row: span 2;
+}
+
+.tile-windCoolingTower {
+    grid-column: span 2;
+} */
+
+/* --- RESPONSIVE --- */
+
+/* medium: 3 columns */
+@media (max-width: 1000px) {
+    .page {
+        padding: 2.5rem 5vw;
+    }
+
+    .collage-wrapper {
+        gap: 40px;
+    }
+
+    .collage-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        width: min(70vw, 800px);
+    }
+}
+
+/* small: stack hero on top, 2 columns */
+@media (max-width: 720px) {
+    .page {
+        padding: 2.5rem 1.5rem 3rem;
+    }
+
+    .collage-wrapper {
+        flex-direction: column;
+        gap: 32px;
+        text-align: center;
+    }
+
+    .hero {
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .collage-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: min(90vw, 520px);
+    }
+}
+
+/* extra small: 1 column if you ever want it */
+@media (max-width: 480px) {
+    .collage-grid {
+        grid-template-columns: 1fr;
+        width: 90vw;
+    }
+}
