@@ -15,72 +15,56 @@ body {
     overflow-x: hidden;
 }
 
-/* --- LAYOUT --- */
-
-.page {
-    min-height: 100vh;
+.home-wrapper {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    padding: 3rem 6vw;
+    justify-content: center;   /* center vertically */
+    height: 100vh;
+    gap: 14px;                 /* space between title + collage */
+    padding-top: 0;
     box-sizing: border-box;
 }
 
-.collage-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;       /* centers the whole pair */
-    gap: 60px;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;                /* ensures it's centered horizontally */
+/* centered title */
+.hero-centered {
+    text-align: center;
+    max-width: 600px;
 }
 
-
-/* --- HERO TEXT --- */
-
-.hero {
-    text-align: left;
-    max-width: 380px;
-    flex-shrink: 0;
-}
-
-.hero h1 {
+.hero-centered h1 {
     margin: 0;
-    font-size: 2.4rem;
-    letter-spacing: 0.04em;
+    font-size: 3rem;
 }
 
-.hero p {
-    margin: 8px 0 0;
-    font-size: 0.95rem;
+.hero-centered h4 {
+    margin-top: 8px;
+    font-size: 1.5rem;
     opacity: 0.85;
 }
 
-/* --- COLLAGE GRID --- */
-
+/* === COLLAGE === */
 .collage-grid {
     position: relative;
-    width: 850px;     /* adjust */
-    height: 600px;    /* adjust */
-    transform: scale(0.9);
+    width: 850px;
+    height: 600px;
+
+    /* small upward nudge + scale */
+    transform: translateY(-40px) scale(0.75) translateX(135px);
     transform-origin: top center;
+
+    margin: 0 auto;            /* center horizontally */
 }
 
-
-/* base tile style */
-
+/* base tile */
 .tile {
-    position: absolute;  /* <--- THIS is the magic */
-    width: 160px;        /* size of each poster */
+    position: absolute;
+    width: 160px;
     height: 220px;
     display: block;
-    text-decoration: none;
+    overflow: hidden;
     transform-origin: center;
     transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
-    aspect-ratio: 3 / 4;  /* portrait shape, adjust if needed */
-    overflow: hidden;
 }
 
 .tile img {
@@ -92,92 +76,148 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
-/* hover micro-animation */
-
 .tile:hover {
-
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.65);
 }
 
-/* --- COLLAGE “MESSY” VIBE ---
-   Tiny rotations + nudges. You can tweak these until it feels right.
-*/
+/* === POSTER POSITIONS (unchanged) === */
 
-.tile-crochet         { transform: translate(380px,   700px) }
-.tile-robotics        { transform: translate( -150px, 590px) }
-.tile-aboutWebsite    { transform: translate( 420px,  120px) }
-.tile-saleszone        { transform: translate(130px,  260px) }
-.tile-chatApp         { transform: translate( 270px, 510px) }
-.tile-tsa          { transform: translate(-10px,  450px) }
-.tile-art         { transform: translate( 350px,  320px)  }
-.tile-history         { transform: translate( 480px,  510px) }
-.tile-kalimba         { transform: translate(550px,  310px)  }
-.tile-me              { transform: translate( 0px,  100px)  }
-.tile-hackClub        { transform: translate(240px,  70px)  }
-.tile-photography     { transform: translate( 130px, 620px) }
-.tile-windCoolingTower{ transform: translate(-130px,  260px)  }
+.tile-crochet         { transform: translate(380px,   700px); }
+.tile-robotics        { transform: translate(-150px,   590px); }
+.tile-aboutWebsite    { transform: translate(420px,    120px); }
+.tile-saleszone       { transform: translate(130px,    260px); }
+.tile-chatApp         { transform: translate(270px,    510px); }
+.tile-tsa             { transform: translate(-10px,    450px); }
+.tile-art             { transform: translate(350px,    320px); }
+.tile-history         { transform: translate(480px,    510px); }
+.tile-kalimba         { transform: translate(550px,    310px); }
+.tile-me              { transform: translate(0px,      100px); }
+.tile-hackClub        { transform: translate(240px,     70px); }
+.tile-photography     { transform: translate(130px,    620px); }
+.tile-windCoolingTower{ transform: translate(-130px,   260px); }
 
-/* OPTIONAL: make a few span more space for extra visual interest
-   (comment out these if it's too chaotic at first)
+/* === INDIVIDUAL POSTER PAGES (like /me) === */
 
-
-.tile-robotics {
-    grid-column: span 2;
+.project-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+    text-align: left;
+    box-sizing: border-box;
 }
 
-.tile-me {
-    grid-row: span 2;
+.project-back {
+    display: inline-block;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    color: #f0a4ff;
+    text-decoration: none;
 }
 
-.tile-windCoolingTower {
-    grid-column: span 2;
-} */
-
-/* --- RESPONSIVE --- */
-
-/* medium: 3 columns */
-@media (max-width: 1000px) {
-    .page {
-        padding: 2.5rem 5vw;
-    }
-
-    .collage-wrapper {
-        gap: 40px;
-    }
-
-    .collage-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        width: min(70vw, 800px);
-    }
+.project-back:hover {
+    text-decoration: underline;
 }
 
-/* small: stack hero on top, 2 columns */
-@media (max-width: 720px) {
-    .page {
-        padding: 2.5rem 1.5rem 3rem;
-    }
-
-    .collage-wrapper {
-        flex-direction: column;
-        gap: 32px;
-        text-align: center;
-    }
-
-    .hero {
-        text-align: center;
-        max-width: 100%;
-    }
-
-    .collage-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        width: min(90vw, 520px);
-    }
+.project-title {
+    text-align: center;
+    font-size: 2rem;
+    margin: 15px;
+    margin-bottom: 2rem;
 }
 
-/* extra small: 1 column if you ever want it */
-@media (max-width: 480px) {
-    .collage-grid {
-        grid-template-columns: 1fr;
-        width: 90vw;
-    }
+.project-subtitle {
+    text-align: center;
+    margin-top: 0.4rem;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    opacity: 0.9;
 }
+
+.project-content {
+    font-size: 0.98rem;
+    line-height: 1.7;
+}
+
+.project-section-title {
+    font-weight: 600;
+    margin-top: 1.8rem;
+    margin-bottom: 0.4rem;
+}
+
+.project-content ul {
+    padding-left: 1.2rem;
+    margin-top: 0.2rem;
+}
+
+.project-content li {
+    margin-bottom: 0.4rem;
+}
+
+.project-note {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* links inside content */
+.project-content a {
+    color: #d58aff;
+    text-decoration: none;
+}
+
+.project-content a:hover {
+    text-decoration: underline;
+}
+
+/* === CONTACT ROW === */
+
+.contact-section {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.contact-label {
+    font-size: 0.95rem;
+    opacity: 0.85;
+    margin-bottom: 0.8rem;
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.contact-icon {
+    font-size: 0.9rem;
+    padding: 0.45rem 1.1rem;
+    border-radius: 999px;
+    border: 1.5px solid #d58aff;
+    text-decoration: none;
+    color: #fdf5ea;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    background: transparent;
+}
+
+.contact-icon:hover {
+    transform: translateY(-2px);
+    background: rgba(213, 138, 255, 0.18);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+}
+
+/* === TOOLTIP === */
+#tooltip {
+    position: fixed;
+    padding: 6px 10px;
+    background: rgba(0,0,0,0.75);
+    border-radius: 6px;
+    color: #fdf5ea;
+    font-family: "Spline Sans Mono", monospace;
+    font-size: 0.75rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s ease-out, transform 0.1s ease-out;
+    z-index: 999;
+    transform: translate(-50%, -120%);
+}
+
