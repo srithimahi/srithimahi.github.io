@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Guestbook</title>
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="guestbook-page">
+<a href="../posters.html" class="back">‹ back</a>
+
+<main class="content terminal-wrap">
+    <div class="terminal">
+        <div class="terminal-topbar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="terminal-title">srithika@guestbook:~</span>
+        </div>
+
+        <div class="terminal-body">
+            <p class="terminal-line"><span class="prompt">srithika@site</span>:<span class="path">~/guestbook</span>$ cat README.txt</p>
+            <p class="terminal-text">
+                welcome to the guestbook.<br/>
+                leave a message like you're writing a log entry back to earth from a alien planet hehe.<br/>
+                be kind. be funny. be a lil mysterious. and a bit funny!
+            </p>
+
+            <p class="terminal-line"><span class="prompt">srithika@site</span>:<span class="path">~/guestbook</span>$ append log --message</p>
+
+            <div class="terminal-giscus">
+                <!-- GISCUS -->
+                <script src="https://giscus.app/client.js"
+                        data-repo="srithimahi/srithimahi.github.io"
+                        data-repo-id="R_kgDOQdOpjA"
+                        data-category="Show and tell"
+                        data-category-id="DIC_kwDOQdOpjM4Czr7l"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="transparent_dark"
+                        data-lang="en"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+            </div>
+
+            <p class="terminal-line dim"><span class="prompt">srithika@site</span>:<span class="path">~/guestbook</span>$</p>
+        </div>
+    </div>
+</main>
+</body>
+</html>

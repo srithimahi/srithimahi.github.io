@@ -1,10 +1,69 @@
-﻿#changing something slightly to redeploy
+﻿.bg-grid{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    display: grid;
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+.bg-cell{
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(0,0,0,0.10);
+    transition: background 0.18s ease, box-shadow 0.18s ease;
+}
+
+.bg-cell.lit{
+    background: rgba(240,182,255,0.20);
+    box-shadow:
+            inset 0 0 18px rgba(158,247,255,0.25),
+            0 0 18px rgba(240,182,255,0.18);
+}
+
+/* Make sure your site content sits ABOVE the bg grid */
+.home-wrapper,
+.project-page,
+.terminal-wrap{
+    position: relative;
+    z-index: 1;
+}
+
+.collage-stage{
+    width: 100%;
+    display: flex;
+    justify-content: center;  /* center horizontally */
+    align-items: center;      /* center vertically */
+    padding: 24px 0 10px;
+    padding-down: 1000px;
+}
+
+.collage-grid{
+    position: relative;
+    width: 850px;
+    height: 600px;
+
+    /* REMOVE your translateX/translateY offsets */
+    /*left:50%;*/
+    transform: translateY(-70px) 
+    scale(0.75) 
+    translateX(135px);
+    transform-origin: center;
+}
+
+
 html, body {
     margin: 0;
     padding: 0;
     min-height: 100%;
-    overflow: hidden;
 }
+
+.no-scroll {
+    overflow: hidden !important;
+}
+
 
 body {
     font-family: "Spline Sans Mono", monospace;
@@ -14,6 +73,7 @@ body {
             radial-gradient(circle at 90% 0%, #e6373f 0, transparent 55%),
             linear-gradient(180deg, #0a0715 0, #020307 100%);
     overflow-x: hidden;
+    position: relative;
 }
 
 .home-wrapper {
@@ -28,8 +88,11 @@ body {
 }
 
 .hero-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* horizontal center */
+    justify-content: center;
     text-align: center;
-    max-width: 600px;
 }
 
 .hero-centered h2 {
@@ -48,7 +111,7 @@ body {
     position: relative;
     width: 850px;
     height: 600px;
-    transform: translateY(-40px) scale(0.75) translateX(135px);
+    /*transform: translateY(-40px) scale(0.75) translateX(135px);*/
     transform-origin: top center;
     margin: 0 auto;
 }
@@ -290,4 +353,108 @@ body.project-scroll {
 
 .no-button {
     position: relative;
+}
+
+/* === TERMINAL GUESTBOOK === */
+
+.guestbook-page {
+    color: #fdf5ea;
+    background:
+            radial-gradient(circle at 10% 0%, #3c3a7a 0, transparent 50%),
+            radial-gradient(circle at 90% 0%, #e6373f 0, transparent 55%),
+            linear-gradient(180deg, #0a0715 0, #020307 100%);
+}
+
+.terminal-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 120px 20px 80px;
+}
+
+.terminal {
+    border-radius: 18px;
+    overflow: hidden;
+    background: rgba(10, 10, 18, 0.55);
+    border: 1px solid rgba(255,255,255,0.10);
+    box-shadow: 0 18px 55px rgba(0,0,0,0.55);
+    backdrop-filter: blur(14px);
+}
+
+.terminal-topbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 14px;
+    background: rgba(0,0,0,0.35);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    display: inline-block;
+    opacity: 0.9;
+}
+.dot.red { background: #ff4d5a; }
+.dot.yellow { background: #ffcc33; }
+.dot.green { background: #36d98a; }
+
+.terminal-title {
+    margin-left: 10px;
+    font-size: 0.9rem;
+    opacity: 0.85;
+    letter-spacing: 0.02em;
+}
+
+.terminal-body {
+    padding: 18px 18px 22px;
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+.terminal-line {
+    margin: 0 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.prompt { color: #9ef7ff; }
+.path { color: #f0b6ff; }
+
+.terminal-text {
+    margin: 0 0 18px;
+    opacity: 0.9;
+}
+
+.dim { opacity: 0.7; }
+
+.terminal-giscus {
+    margin-top: 10px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.10);
+}
+
+/* make giscus blend in nicer */
+.terminal-giscus .giscus,
+.terminal-giscus .giscus-frame {
+    width: 100%;
+}
+
+/* Back button (if you don't already have it) */
+.back {
+    position: fixed;
+    top: 22px;
+    left: 22px;
+    text-decoration: none;
+    color: #f0b6ff;
+    font-size: 0.95rem;
+    opacity: 0.85;
+    z-index: 9999;
+}
+
+.back:hover {
+    opacity: 1;
+    text-decoration: underline;
 }
