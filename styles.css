@@ -45,8 +45,6 @@
     width: 850px;
     height: 600px;
 
-    /* REMOVE your translateX/translateY offsets */
-    /*left:50%;*/
     transform: translateY(-70px) 
     scale(0.75) 
     translateX(135px);
@@ -165,6 +163,9 @@ body.project-scroll {
 .project-page {
     max-width: 800px;
     margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     padding: 3rem 1.5rem 4rem;
     text-align: left;
     box-sizing: border-box;
@@ -471,26 +472,43 @@ body.project-scroll {
 /* ✅ scale the whole collage down on smaller screens (keeps your translate values!) */
 @media (max-width: 900px) {
     .collage-grid {
-        transform: scale(0.65) translateY(-40px) translateX(135px);
+        transform: scale(0.65) translateY(-120px) translateX(135px);
         transform-origin: top center;
     }
 }
+
+/*@media (max-width: 600px) {
+    .collage-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        height: auto;
+        transform: none;
+        left: auto;
+    }
+
+    .tile {
+        position: static;
+        width: 140px;
+        height: 190px;
+    }
+}*/
 
 @media (max-width: 600px) {
     .collage-grid {
         left: 50%;
         transform:
-                translateX(-50%)     /* ← centers the cluster */
-                scale(0.48)
-                translateY(-40px)
-                translateX(135px);   /* your original values */
+                translateX(-50%)
+                scale(0.39)
+                translateY(-40px);
         transform-origin: top center;
     }
 }
 
-/* ✅ if it's STILL too tall on phone, allow scrolling ONLY on mobile */
-@media (max-width: 600px) {
-    body.no-scroll {
-        overflow: auto;        /* allow scroll on phone */
+
+/*@media (max-width: 600px) {
+    body {
+        overflow-y: auto;
     }
-}
+}*/
