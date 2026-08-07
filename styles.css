@@ -653,10 +653,19 @@ body.project-scroll {
     
 }
 
+.terminal-nav-link:hover .nav-command {
+    color: #ffffff;
+}
+
 .terminal-nav-link:hover {
-    transform: none;
-    background: rgba(158, 247, 255, 0.06);
-    border-color: rgba(158, 247, 255, 0.35);
+    transform: translateY(-4px) scale(1.015);
+
+    background: rgba(158, 247, 255, 0.10);
+    border-color: rgba(158, 247, 255, 0.52);
+    box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.35),
+        0 0 16px rgba(158, 247, 255, 0.10),
+        inset 0 0 18px rgba(158, 247, 255, 0.045);
 }
 
 .terminal-nav-link:focus-visible {
@@ -670,8 +679,8 @@ body.project-scroll {
 }
 
 .nav-command {
-    color: #f0b6ff;
-    font-size: 1rem;
+    color: #f3c8ff;
+    font-size: 1.05rem;
     font-weight: 600;
 }
 
@@ -683,7 +692,7 @@ body.project-scroll {
 }
 
 .terminal-nav-link:hover .nav-arrow {
-    transform: translateX(4px);
+    transform: translateX(6px);
 }
 
 .nav-description {
@@ -760,29 +769,33 @@ body.project-scroll {
     gap: 30px;
     padding: 22px 6px 0;
     font-size: 0.73rem;
-    opacity: 0.66;
+    opacity: 1;
 }
 
 .footer-links {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
     gap: 18px;
 }
 
 .footer-links a {
-    color: #fdf5ea;
+    color: #fdfdfd;
     text-decoration: none;
+
+    transition:
+        color 0.15s ease,
+        opacity 0.15s ease;
 }
 
 .footer-links a:hover {
     color: #f0b6ff;
 }
 
-.page-ring-note {
-    max-width: 420px;
-    margin: 0;
-    text-align: right;
-    line-height: 1.5;
+.footer-pagering {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 @media (max-width: 760px) {
@@ -829,11 +842,12 @@ body.project-scroll {
 
     .home-footer {
         flex-direction: column;
-        gap: 16px;
+        align-items: flex-start;
+        gap: 14px;
     }
 
-    .page-ring-note {
-        text-align: left;
+    .footer-pagering {
+        justify-content: flex-start;
     }
 }
 
@@ -863,4 +877,203 @@ body.project-scroll {
     .terminal-nav-link {
         min-height: auto;
     }
+}
+
+.terminal-extra {
+    margin-top: 38px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.terminal-extra-label {
+    margin: -5px 0 16px;
+    font-size: 0.78rem;
+    opacity: 0.55;
+}
+
+.button-wall {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.button-wall a {
+    display: block;
+    width: 88px;
+    height: 31px;
+    line-height: 0;
+    transition:
+        transform 0.14s ease,
+        filter 0.14s ease;
+}
+
+.button-wall img {
+    display: block;
+    width: 88px;
+    height: 31px;
+    image-rendering: pixelated;
+}
+
+.button-wall a:hover {
+    transform: translateY(-3px) scale(1.05);
+    filter:
+        brightness(1.1)
+        drop-shadow(0 5px 6px rgba(0, 0, 0, 0.45));
+}
+
+.terminal-divider {
+    width: 100%;
+    height: 1px;
+    margin: 30px 0;
+    background: linear-gradient(
+        90deg,
+        rgba(240,182,255,0.35),
+        rgba(158,247,255,0.25),
+        transparent
+    );
+}
+
+
+ 
+
+/*Rainbow Divider*/
+
+.rainbow-divider {
+    --divider-bg: #0b0b12;
+    --bar-size: 15px;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin: 30px 0 26px;
+    padding: 1em 0;
+    overflow: hidden;
+}
+
+.rainbow-divider::before,
+.rainbow-divider::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 50%;
+    width: 100%;
+    height: 2px;
+}
+
+/*the rainbow stuff*/
+
+.rainbow-divider::after {
+    background: linear-gradient(
+        to right,
+        #62efab 5%,
+        #f2ea7d 15%,
+        #f2ea7d 25%,
+        #ff8797 35%,
+        #ff8797 45%,
+        #e1a4f4 55%,
+        #e1a4f4 65%,
+        #82fff4 75%,
+        #82fff4 85%,
+        #62efab 95%
+    );
+    background-size: 200% 100%;
+    animation: rainbow-bar 15s linear infinite;
+}
+
+.rainbow-divider::before {
+    z-index: 1;
+    background: linear-gradient(
+        90deg,
+        var(--divider-bg) 0%,
+        var(--divider-bg) 5%,
+
+        transparent 5%,
+        transparent 10%,
+
+        var(--divider-bg) 10%,
+        var(--divider-bg) 15%,
+
+        transparent 15%,
+        transparent 20%,
+
+        var(--divider-bg) 20%,
+        var(--divider-bg) 25%,
+
+        transparent 25%,
+        transparent 30%,
+
+        var(--divider-bg) 30%,
+        var(--divider-bg) 35%,
+
+        transparent 35%,
+        transparent 40%,
+
+        var(--divider-bg) 40%,
+        var(--divider-bg) 45%,
+
+        transparent 45%,
+        transparent 50%,
+
+        var(--divider-bg) 50%,
+        var(--divider-bg) 55%,
+
+        transparent 55%,
+        transparent 60%,
+
+        var(--divider-bg) 60%,
+        var(--divider-bg) 65%,
+
+        transparent 65%,
+        transparent 70%,
+
+        var(--divider-bg) 70%,
+        var(--divider-bg) 75%,
+
+        transparent 75%,
+        transparent 80%,
+
+        var(--divider-bg) 80%,
+        var(--divider-bg) 85%,
+
+        transparent 85%,
+        transparent 90%,
+
+        var(--divider-bg) 90%,
+        var(--divider-bg) 95%,
+
+        transparent 95%,
+        transparent 100%
+    );
+
+    background-size: 150px 100%;
+    animation: divider-mask 120s linear infinite;
+}
+
+@keyframes rainbow-bar {
+    from {
+        background-position: 0% 0;
+    }
+    to {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes divider-mask {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 1500px 0;
+    }
+}
+
+/*PHEW FINALLY*/
+
+.rainbow-divider:hover::after {
+    animation-duration: 2s;
+}
+
+.rainbow-divider:hover::before {
+    animation-duration: 20s;
 }
