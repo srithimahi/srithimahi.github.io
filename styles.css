@@ -1077,3 +1077,148 @@ body.project-scroll {
 .rainbow-divider:hover::before {
     animation-duration: 20s;
 }
+
+/*about-page*/
+
+.about-page {
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.about-wrapper {
+    position:relative;
+    z-index: 1;
+    width: min(900px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 60px 0;
+    box-sizing:border-box;
+}
+
+.about-window {
+    width: 100%;
+    background: #0b0b12;
+}
+
+.window-close {
+    cursor: pointer;
+    text-decoration: none;
+    transition:
+        transform 0.15s ease,
+        filter 0.15s ease;
+}
+
+.window-close:hover {
+    transform: scale(1.25);
+    filter: brightness(1.2);
+}
+
+.about-content {
+    padding: clamp(30px, 5vw, 55px);
+}
+
+.about-hero {
+    max-width: 720px;
+}
+
+.about-kicker {
+    margin: 0 0 7px;
+    color: #f0b6ff;
+    font-size:0.9rem;
+}
+
+.about-hero h1 {
+    margin: 0;
+    font-size: clamp(2.4rem, 6vw, 4.3rem);
+    line-height: 1.05;
+    letter-spacing: -0.05em;
+}
+
+.about-school {
+    margin: 16px 0 0;
+    color: #9ef7ff;
+    font-size: 0.92rem;
+}
+
+.about-school span {
+    margin: 0 7px;
+    color: #f0b6ff;
+}
+
+.about-intro {
+    max-width: 670px;
+    margin: 24px 0 0;
+    font-size: 1rem;
+    line-height:1.8;
+    opacity: 0.82;
+}
+
+.about-section {
+    max-width: 720px;
+    margin-top: 38px;
+}
+
+.about-section h2 {
+    margin: 0 0 14px;
+    color: #f0b6ff;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.about-section p {
+    margin: 0 0 14px;
+    font-size:0.92rem;
+    line-height: 1.8;
+    opacity: 0.78;
+}
+
+.interest-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.interest-list span {
+    padding: 7px 11px;
+
+    border: 1px solid rgba(158, 247, 255, 0.25);
+    border-radius: 7px;
+
+    background: rgba(158, 247, 255, 0.045);
+
+    color: #fdf5ea;
+
+    font-size: 0.78rem;
+
+    transition:
+        transform 0.15s ease,
+        border-color 0.15s ease,
+        background 0.15s ease;
+}
+
+.interest-list span:hover {
+    transform: translateY(-2px);
+    border-color: rgba(158, 247, 255, 0.55);
+    background: rgba(158, 247, 255, 0.1);
+}
+
+@media (max-width: 600px) {
+    .about-wrapper {
+        width: calc(100% - 16px);
+        padding: 18px 0;
+    }
+
+    .about-content {
+        padding: 26px 20px 34px;
+    }
+
+    .about-school {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .about-school span {
+        display: none;
+    }
+}
