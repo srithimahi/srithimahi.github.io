@@ -370,7 +370,7 @@ body.project-scroll {
 }
 
 .prompt { color: #9ef7ff; }
-.path { color: #f0b6ff; }
+.path { color: #db7bf3; }
 
 .terminal-text {
     margin: 0 0 18px;
@@ -397,7 +397,7 @@ body.project-scroll {
     top: 22px;
     left: 22px;
     text-decoration: none;
-    color: #f0b6ff;
+    color: #db7bf3;
     font-size: 0.95rem;
     opacity: 0.85;
     z-index: 9999;
@@ -573,7 +573,7 @@ body.project-scroll {
 
 .home-eyebrow {
     margin: 0 0 6px;
-    color: #f0b6ff;
+    color: #db7bf3;
     font-size: 1.2rem;
 }
 
@@ -585,8 +585,8 @@ body.project-scroll {
 }
 
 .terminal-cursor {
-    color: #9ef7ff;
-    animation: cursor-blink 0.9s steps(1) infinite;
+    color: #7ed0d8;
+    animation: cursor-blink 1.7s steps(1) infinite;
 }
 
 @keyframes cursor-blink {
@@ -609,7 +609,7 @@ body.project-scroll {
 
 .home-separator {
     margin: 0 8px;
-    color: #f0b6ff;
+    color: #db7bf3;
 }
 
 .home-description {
@@ -679,7 +679,7 @@ body.project-scroll {
 }
 
 .nav-command {
-    color: #f3c8ff;
+    color: #db7bf3;
     font-size: 1.05rem;
     font-weight: 600;
 }
@@ -789,7 +789,7 @@ body.project-scroll {
 }
 
 .footer-links a:hover {
-    color: #f0b6ff;
+    color: #db7bf3;
 }
 
 .footer-pagering {
@@ -1122,9 +1122,9 @@ body.project-scroll {
 }
 
 .about-kicker {
-    margin: 0 0 7px;
-    color: #f0b6ff;
-    font-size:0.9rem;
+    margin: 0 0 9px;
+    color: #db7bf3;
+    font-size:1.2rem;
 }
 
 .about-hero h1 {
@@ -1136,13 +1136,13 @@ body.project-scroll {
 
 .about-school {
     margin: 16px 0 0;
-    color: #9ef7ff;
+    color: #99ddf8;
     font-size: 0.92rem;
 }
 
 .about-school span {
     margin: 0 7px;
-    color: #f0b6ff;
+    color: #db7bf3;
 }
 
 .about-intro {
@@ -1160,7 +1160,7 @@ body.project-scroll {
 
 .about-section h2 {
     margin: 0 0 14px;
-    color: #f0b6ff;
+    color: #e48bfa;
     font-size: 1rem;
     font-weight: 600;
 }
@@ -1196,11 +1196,6 @@ body.project-scroll {
         background 0.15s ease;
 }
 
-.interest-list span:hover {
-    transform: translateY(-2px);
-    border-color: rgba(158, 247, 255, 0.55);
-    background: rgba(158, 247, 255, 0.1);
-}
 
 @media (max-width: 600px) {
     .about-wrapper {
