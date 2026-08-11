@@ -50,6 +50,11 @@ html, body {
     overflow: hidden !important;
 }
 
+.posters-terminal {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 .terminal-home {
     width: min(920px, 92vw);
 }
@@ -385,13 +390,11 @@ body.project-scroll {
     border-top: 1px solid rgba(255,255,255,0.10);
 }
 
-/* make giscus blend in nicer */
 .terminal-giscus .giscus,
 .terminal-giscus .giscus-frame {
     width: 100%;
 }
 
-/* Back button (if you don't already have it) */
 .back {
     position: fixed;
     top: 22px;
