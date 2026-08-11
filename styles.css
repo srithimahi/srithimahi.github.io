@@ -55,6 +55,12 @@ html, body {
     overflow-x: hidden;
 }
 
+.posters-terminal .home-wrapper {
+    height: auto;
+    min-height: 100vh;
+    padding: 40px 0 80px;
+}
+
 .terminal-home {
     width: min(920px, 92vw);
 }
